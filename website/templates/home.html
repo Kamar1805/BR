@@ -1,0 +1,108 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %} 
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<div class="greeting-container">
+    <span class="greeting-text">Hi {{ session['first_name'] }}</span>
+    <img src="{{ url_for('static', filename='images/wave.svg') }}" alt="Waving Hand" class="waving-hand-icon">
+</div>
+{% endif %}
+<div class="search-container">
+    <form action="/" method="get">
+    <input type="text" name="q" id="search-bar" placeholder="Search for a game...">
+    <button type="button" class="search-button" onclick="searchGame()">Search</button>
+    </form>
+</div>
+
+<p id="message" style="color: red; display: none;">Game Not Found</p>
+
+
+<div class="game-list">
+    {% for game in games[:4] %}
+    <div class="game-card">
+        <!-- Game Image -->
+        <div class="game-image">
+            <img src="{{ url_for('static', filename='images/' + game.image_url) }}" alt="{{ game.title }}" style="width: 200px; height: 200px; margin-bottom: 10px;">
+        </div>
+
+        <!-- Game Details -->
+        <div class="game-details" style="background-color: #A27B5C;">
+            <h3>{{ game.title }}</h3>
+            <p class="game-overview">{{ game.description }}</p>
+            <p><strong>Players:</strong> {{ game.players }}</p>
+            <p><strong>Rating:</strong> {{ game.rating }}%</p>
+
+            <div class="buttons">
+                <form action="{{ url_for('views.add_to_collection', game_id=game['game_id']) }}" method="POST">
+                    <button type="submit" class="btn">Add to Collection</button>
+                </form>
+                <a href="{{ url_for('static', filename='rules/' +  game.rules_pdf) }}" class="btn" download>Download Rules</a>
+            </div>
+        </div>
+    </div>
+
+    <br> <br>
+    {% endfor %}
+</div>
+<div class="see-more-container">
+    <button class="see-more-btn" onclick="toggleGames()">See More</button>
+
+</div>
+
+<div class="more-games">
+    {% for game in games[4:] %}
+    <div class="game-card">
+        <!-- Game Image -->
+        <div class="game-image">
+            <img src="{{ url_for('static', filename='images/' + game.image_url) }}" alt="{{ game.title }}" style="width: 200px; height: 200px; margin-bottom: 10px;">
+        </div>
+
+        <!-- Game Details -->
+        <div class="game-details" style="background-color: #A27B5C;">
+            <h3>{{ game.title }}</h3>
+            <p class="game-overview">{{ game.description }}</p>
+            <p><strong>Players:</strong> {{ game.players }}</p>
+            <p><strong>Rating:</strong> {{ game.rating }}%</p>
+
+            <div class="buttons">
+                <form action="{{ url_for('views.add_to_collection', game_id=game['game_id']) }}" method="POST">
+                    <button type="submit" class="btn">Add to Collection</button>
+                </form>
+                
+                <a href="{{ url_for('static', filename='rules/' + game.rules_pdf) }}" class="btn" download>Download Rules</a>
+            </div>
+        </div>
+    </div>
+
+    <br> <br>
+    {% endfor %}
+   
+</div>
+
+<script>
+    function toggleGames() {
+    const gameList = document.getElementById("gameList");
+    const seeMoreButton = document.querySelector(".see-more-btn");
+    const seeMoreContainer = document.querySelector(".see-more-container");
+
+    // Toggle visibility of more games
+    gameList.classList.toggle("show-more");
+
+    // Move the button to the end of the game list and change the text
+    if (gameList.classList.contains("show-more")) {
+        seeMoreButton.textContent = "See Less";
+        // Append the button after the game list
+        seeMoreContainer.style.marginTop = "20px";  // Optional, tweak margin if needed
+    } else {
+        seeMoreButton.textContent = "See More";
+        // Reset margin if needed
+        seeMoreContainer.style.marginTop = "0px";  // Optional, adjust if necessary
+    }
+}
+
+
+
+</script>
+{% endblock %}
+

@@ -1,0 +1,811 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-container {
+    display: flex;              /* Aligns items horizontally */
+    align-items: center;        /* Vertically centers items */
+    gap: 10px;                  /* Adds space between the search bar and button */
+}
+
+#search-bar {
+    padding: 10px;
+    font-size: 25px;
+    border: 2px solid #ccc;
+    background-color: #DADADA;
+    border-radius: 4px;
+    width: 970px;   
+    height: 44px;           
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #343a40;
+    color: white;
+    border: 2px solid #A27B5C;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 14px;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  #search-bar {
+      width: 100%; /* take full width of container */
+      font-size: 18px; /* slightly smaller font */
+  }
+
+  .search-button {
+       /* button spans full width under input */
+      font-size: 16px; /* slightly smaller font */
+  }
+
+  .search-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px; /* reduce gap slightly */
+  }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.apptitle {
+    font-size: 45px;
+    color: #A27B5C;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2C3930;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+
+
+}
+
+.flash-message {
+  padding: 12px 20px;
+  border-radius: 5px;
+  margin: 10px auto;
+  text-align: center;
+  width: 80%;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+.flash-message.success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.flash-message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+
+.container {
+    padding: 2rem;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+.game-image img {
+     height: 5px;
+     width: 5px;             /* Set the height of the image */         /* Ensures the image covers the box, maintaining aspect ratio */
+    border-radius: 8px;         /* Optional: gives the image rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow around the image */
+    transition: transform 0.3s ease-in-out; /* Optional: adds a smooth hover effect */
+}
+
+/*.game-image img:hover {
+    transform: scale(1.5); /* Optional: slightly enlarge the image on hover */
+
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button, .btn {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover {
+    background-color: #2C3930;
+}
+
+.error {
+    color: red;
+    margin-top: 0.5rem;
+}
+
+.game-detail {
+    background-color: #A27B5C;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.rating {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.star {
+    color: #ccc;
+}
+
+.star.filled {
+    color: gold;
+}
+
+
+.game-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.contain {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */           /* Ensures the container takes the full height of the viewport */
+    background-color: #2C3930; /* Optional: adds a background color */
+}
+
+.contain img {
+    max-width: 90%;  /* Makes sure the image resizes well */
+    height: auto;    /* Maintains aspect ratio */
+}
+
+/* footer */
+.footer {
+    background-color: #343a40;
+    padding: 10px 20px;
+    margin-top: 50px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-content {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .footer-left h3 {
+    margin-bottom: 10px;
+    color: #A27B5C;
+  }
+  
+  .footer-left p {
+    color: #A27B5C;
+    font-size: 14px;
+  }
+  
+  .footer-center ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-center li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .footer-center a {
+    text-decoration: none;
+    color: #A27B5C;
+    font-weight: 500;
+  }
+  
+  .footer-center a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-right p {
+    margin-bottom: 10px;
+    color: #A27B5C;
+  }
+  
+  .social-icons a img {
+    width: 24px;
+    margin: 0 5px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+  }
+  
+  .social-icons a img:hover {
+    filter: none;
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  .logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .dice {
+    width: 120px;
+    height: 130px;
+    background-image: url('/static/images/dicee.png'); /* Add your dice image here */
+    background-size: cover;
+    animation: rollDice 1s infinite ease-in-out;
+  }
+  
+  .left-dice {
+    animation-delay: 0s;
+  }
+  
+  .right-dice {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes rollDice {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(90deg) scale(1.1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1);
+    }
+    75% {
+      transform: rotate(270deg) scale(1.1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+  
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/static/fonts/monasheader.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .rainbow-title {
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    gap: 0.1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-size: 50px;
+  }
+  
+  .rainbow-title span {
+    animation: colorShift 2s infinite;
+    display: inline-block;
+  }
+  
+  .rainbow-title span:nth-child(1) { animation-delay: 0s; }
+  .rainbow-title span:nth-child(2) { animation-delay: 0.2s; }
+  .rainbow-title span:nth-child(3) { animation-delay: 0.4s; }
+  .rainbow-title span:nth-child(4) { animation-delay: 0.6s; }
+  .rainbow-title span:nth-child(5) { animation-delay: 0.8s; }
+  .rainbow-title span:nth-child(6) { animation-delay: 1s; }
+  .rainbow-title span:nth-child(7) { animation-delay: 1.2s; }
+  .rainbow-title span:nth-child(8) { animation-delay: 1.4s; }
+  .rainbow-title span:nth-child(9) { animation-delay: 1.6s; }
+  .rainbow-title span:nth-child(10) { animation-delay: 1.8s; }
+  
+  @keyframes colorShift {
+    0%   { color: #ff4b5c; }
+    25%  { color: #ffa931; }
+    50%  { color: #3b9cfc; }
+    75%  { color: #8e44ad; }
+    100% { color: #ff4b5c; }
+  }
+  
+  .game-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .game-card {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .see-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;  /* Add margin below */
+}
+
+.see-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.see-more-btn:hover {
+    background-color: #2980b9;
+}
+
+.more-gamess {
+    display: none;  /* Initially, these games are hidden */
+}
+
+.show-more .more-gamess {
+    display: block;  /* When 'See More' is clicked, they are shown */
+}
+
+  .inline {
+    display: block;
+    margin: 20px auto;
+  }
+
+  .after-last {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  } 
+  .more-games {
+    display: none; /* Initially hide additional games */
+    margin-top: 20px;
+  }
+  
+  .more-games.open {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .dice-spinner {
+    width: 80px; /* adjust size of your dice */
+    height: 80px; /* adjust size of your dice */
+    animation: dice-spin 1s linear infinite;
+  }
+  
+  @keyframes dice-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .greeting-container {
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    margin-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.greeting-text {
+    font-size: 45px;
+    font-weight: bold;
+    color: #4A90E2;
+    margin-right: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.waving-hand-icon {
+    width: 70px;
+    height: 70px;
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .greeting-container {
+      justify-content: center;  /* center on small screens */
+      margin-right: 0;          /* remove right margin */
+  }
+
+  .greeting-text {
+      font-size: 24px;          /* reduce font size */
+      margin-right: 5px;        /* smaller gap */
+  }
+
+  .waving-hand-icon {
+      width: 40px;              /* smaller icon */
+      height: 40px;
+  }
+}
+
+.navbar-container {
+    display: inline-flex;
+    gap: 20px;
+    padding: 10px 20px;
+    background-color: #1F1F1F; /* dark background */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.nav-link {
+    color: #F5F5F5; /* light text on dark background */
+    font-size: 20px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #A27B5C; /* your original accent color */
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(162, 123, 92, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Responsive behavior for small screens */
+@media (max-width: 600px) {
+  .navbar-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; /* tighter vertical gap */
+      justify-content: center;
+  }
+
+  .nav-link {
+      width: 100%; /* full width buttons */
+      font-size: 12px; /* slightly smaller on mobile */
+  }
+}
+
+.logo-section {
+  margin-bottom: 2px; /* reduce space below logo section */
+}
+
+.rainbow-title {
+  margin-top: 0; /* reduce space above the heading */
+}
+
+/* Updated Login Design*/
+/* Keep the container structured */
+/* Targeting only the login and signup forms using their IDs */
+#login-form, #signup-form {
+  background-color: #1F3B34; /* dark green, matching background */
+  padding: 50px;
+  border-radius: 12px;
+  max-width: 800px; /* wide enough box */
+  margin: 50px auto; /* centered with margin on top */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+#login-form h3, #signup-form h3, 
+#login-form label, #signup-form label, 
+#login-form button, #signup-form button {
+  background: linear-gradient(45deg, #ff6f61, #ffcc5c, #6b5b95, #88b04b);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+}
+
+#login-form h3, #signup-form h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+#login-form .form-group, #signup-form .form-group {
+  margin-bottom: 25px;
+}
+
+#login-form label, #signup-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #fff; /* white text for labels */
+}
+
+#login-form input.form-control, #signup-form input.form-control {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background-color: #2e4d40; /* slightly darker background for input */
+  color: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#login-form input.form-control:focus, #signup-form input.form-control:focus {
+  border-color: #A27B5C; /* gold accent color */
+  box-shadow: 0 0 8px rgba(162, 123, 92, 0.4);
+  outline: none;
+}
+
+#login-form button.btn-primary, #signup-form button.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: #A27B5C; /* gold background */
+  color: #fff;
+  border: 2px solid powderblue;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+
+}
+
+#login-form button.btn-primary:hover, #signup-form button.btn-primary:hover {
+  background-color: #D9A96A; /* lighter gold background on hover */
+  box-shadow: 0 6px 20px rgba(162, 123, 92, 0.5); /* gold shadow on hover */
+  transform: translateY(-4px); /* slightly lifts the button */
+}
+
+/* Hide footer if the page has 'no-footer' class */
+body.no-footer footer {
+  display: none;
+}
+
+/*Respinsiveness */
+
+/* Mobile view - Adjustments */
+@media (max-width: 768px) {
+  .logom {
+      width: 50px; /* Reduce logo size for mobile */
+      height: 50px;
+  }
+
+  .dice {
+      width: 30px; /* Reduce dice size for mobile */
+      height: 30px;
+  }
+
+  .logo-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; /* Stack the logo and dice vertically */
+  }
+
+  .rainbow-title {
+      font-size: 2rem; /* Smaller font size for mobile */
+      margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logom {
+      width: 10px; /* Further reduce logo size for very small screens */
+      height: 10px;
+  }
+
+  .dice {
+      width: 65px; /* Further reduce dice size */
+      height: 65px;
+  }
+
+  .rainbow-title {
+      font-size: 25px; /* Further reduce font size */
+  }
+}
+
+@font-face {
+  font-family: 'headfont';  /* Give your font a name */
+  src: url('fonts/h11.ttf') format('truetype');  /* Path to the font file */
+  font-weight: normal;  /* Define font weight (normal, bold, etc.) */
+  font-style: normal;   /* Define font style (normal, italic, etc.) */
+}
+
+@font-face {
+  font-family: 'bodyfont';  /* Give your font a name */
+  src: url('fonts/p1.ttf') format('truetype');  /* Path to the font file */
+  font-weight: normal;  /* Define font weight (normal, bold, etc.) */
+  font-style: normal;   /* Define font style (normal, italic, etc.) */
+}
+
+/* Game card update */ 
+.game-list {
+  display: flex;
+  justify-content:space-around;  /* Distribute cards evenly */
+  gap: 5px;  /* Add space between each card */
+  width: 100%;
+  padding: 20px;
+  flex-wrap: wrap;  /* Allow wrapping if necessary */
+  margin: 0 auto;
+}
+
+/* Individual game card */
+.game-card {
+  background-color: #3B4252;  /* Dark grayish-blue background */
+  color: #ECEFF4;  /* Light text color */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
+  width: calc(25% - 20px);  /* Four cards in a row */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Game image */
+.game-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Game details */
+.game-details {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: burlywood;
+}
+
+.game-details h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: 'headfont';
+  color: #3B4252;
+}
+
+.game-details p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-family: 'bodyfont';
+  font-size: 15px;
+  color: #343a40;
+}
+
+/* Button section */
+.buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #3B4252;  /* Soft blue button */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #5E81AC;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .game-card {
+      width: calc(33.333% - 20px);  /* 3 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .game-card {
+      width: calc(50% - 20px);  /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card {
+      width: 100%;  /* 1 card per row on mobile */
+  }
+}
+
+
+
+/* Sessions */
