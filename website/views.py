@@ -339,3 +339,4 @@ def view_rules(game_name):
 @views.route('/chess')
 def chess():
     return render_template('chess.html', user=current_user)
+
