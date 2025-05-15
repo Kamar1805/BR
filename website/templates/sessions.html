@@ -317,20 +317,22 @@
 </div>
 
         <script>
+        const viewRulesBaseURL = "{{ url_for('views.view_rules', game_name='') }}";
             let timerInterval;
             let startTime;
         
             function viewSelectedRules() {
-                var selectedGame = document.getElementById('gameSelect').value;
-                var pdfViewer = document.getElementById('pdfViewer');
-        
-                if (selectedGame) {
-                    var url = '{{ url_for("views.view_rules", game_name="") }}' + selectedGame;
-                    pdfViewer.src = url;
-                } else {
-                    alert('Please select a game first.');
-                }
-            }
+    var selectedGame = document.getElementById('gameSelect').value;
+    var pdfViewer = document.getElementById('pdfViewer');
+
+    if (selectedGame) {
+        // Clean game name (just like your route expects)
+        selectedGame = selectedGame.trim().toLowerCase();
+        pdfViewer.src = viewRulesBaseURL + selectedGame;
+    } else {
+        alert('Please select a game first.');
+    }
+}
         
             document.getElementById('startSession').addEventListener('click', () => {
                 startTime = new Date();

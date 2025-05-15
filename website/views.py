@@ -328,15 +328,11 @@ def delete_session(session_id):
 
 @views.route('/view_rules/<game_name>')
 def view_rules(game_name):
-    # Clean the game name if needed (handle case sensitivity, spaces, etc.)
     game_name = game_name.strip().lower()
-    # Make sure the game name corresponds to a valid PDF file
+    print(f"Trying to serve: static/rules/{game_name}.pdf")  # Debug print
     try:
         return send_from_directory(os.path.join('static', 'rules'), f'{game_name}.pdf')
     except FileNotFoundError:
         return "PDF not found!", 404
-    
-@views.route('/chess')
-def chess():
-    return render_template('chess.html', user=current_user)
+
 
