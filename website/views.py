@@ -328,7 +328,7 @@ def delete_session(session_id):
 
 @views.route('/view_rules/<game_name>')
 def view_rules(game_name):
-    filename = f"{game_name.strip().lower()}.pdf"
+    filename = f"{game_name.strip()}.pdf"
     rules_dir = os.path.join(current_app.root_path, 'static', 'rules')
     full_path = os.path.join(rules_dir, filename)
 

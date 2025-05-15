@@ -329,7 +329,8 @@
     const pdfViewer = document.getElementById('pdfViewer');
 
     if (selectedGame) {
-        const url = '/view_rules/' + encodeURIComponent(selectedGame.toLowerCase());
+        // Remove the `.toLowerCase()` call here
+        const url = '/view_rules/' + encodeURIComponent(selectedGame);
         console.log("Setting iframe src to: " + url);  // Debug log
         pdfViewer.src = url;
     } else {
