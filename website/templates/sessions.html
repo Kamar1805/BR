@@ -317,22 +317,26 @@
 </div>
 
         <script>
-        const viewRulesBaseURL = "{{ url_for('views.view_rules', game_name='') }}";
+        
+    const viewRulesBaseURL = "{{ url_for('views.view_rules', game_name='GAME_PLACEHOLDER') }}";
+
+
             let timerInterval;
             let startTime;
         
             function viewSelectedRules() {
-    var selectedGame = document.getElementById('gameSelect').value;
-    var pdfViewer = document.getElementById('pdfViewer');
+    const selectedGame = document.getElementById('gameSelect').value;
+    const pdfViewer = document.getElementById('pdfViewer');
 
     if (selectedGame) {
-        // Clean game name (just like your route expects)
-        selectedGame = selectedGame.trim().toLowerCase();
-        pdfViewer.src = viewRulesBaseURL + selectedGame;
+        const cleanedGame = selectedGame.trim().toLowerCase();
+        const url = viewRulesBaseURL.replace("GAME_PLACEHOLDER", cleanedGame);
+        pdfViewer.src = url;
     } else {
         alert('Please select a game first.');
     }
 }
+
         
             document.getElementById('startSession').addEventListener('click', () => {
                 startTime = new Date();
