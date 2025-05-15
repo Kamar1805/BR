@@ -104,7 +104,7 @@ from flask import session
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from datetime import datetime
 from .models import db, Session  # assuming you have models set up
-from flask import send_from_directory
+from flask import send_from_directory, current_app
 
 import os
 from flask import send_from_directory
@@ -328,13 +328,13 @@ def delete_session(session_id):
 
 @views.route('/view_rules/<game_name>')
 def view_rules(game_name):
-    import os
-    from flask import current_app, send_from_directory
+    filename = f"{game_name.strip().lower()}.pdf"
+    rules_dir = os.path.join(current_app.root_path, 'static', 'rules')
+    full_path = os.path.join(rules_dir, filename)
 
-    game_name = game_name.strip().lower()
-    filename = f"{game_name}.pdf"
-    rules_folder = os.path.join(current_app.root_path, 'static', 'rules')
+    if not os.path.exists(full_path):
+        return f"PDF '{filename}' not found on server.", 404
 
-    return send_from_directory(rules_folder, filename)
+    return send_from_directory(rules_dir, filename)
 
 

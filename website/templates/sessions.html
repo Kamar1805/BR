@@ -324,19 +324,19 @@
             let timerInterval;
             let startTime;
         
-    function viewSelectedRules() {
-        const selectedGame = document.getElementById('gameSelect').value;
-        const pdfViewer = document.getElementById('pdfViewer');
+            function viewSelectedRules() {
+    const selectedGame = document.getElementById('gameSelect').value;
+    const pdfViewer = document.getElementById('pdfViewer');
 
-        if (selectedGame) {
-            const cleanedGame = selectedGame.trim().toLowerCase();
-            const url = '/view_rules/' + encodeURIComponent(cleanedGame);
-            console.log("Loading rules from: " + url); // Debug
-            pdfViewer.src = url;
-        } else {
-            alert('Please select a game first.');
-        }
+    if (selectedGame) {
+        const url = '/view_rules/' + encodeURIComponent(selectedGame.toLowerCase());
+        console.log("Setting iframe src to: " + url);  // Debug log
+        pdfViewer.src = url;
+    } else {
+        alert('Please select a game first.');
     }
+}
+
 
         
             document.getElementById('startSession').addEventListener('click', () => {
