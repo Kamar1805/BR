@@ -328,11 +328,13 @@ def delete_session(session_id):
 
 @views.route('/view_rules/<game_name>')
 def view_rules(game_name):
+    import os
+    from flask import current_app, send_from_directory
+
     game_name = game_name.strip().lower()
-    print(f"Trying to serve: static/rules/{game_name}.pdf")  # Debug print
-    try:
-        return send_from_directory(os.path.join('static', 'rules'), f'{game_name}.pdf')
-    except FileNotFoundError:
-        return "PDF not found!", 404
+    filename = f"{game_name}.pdf"
+    rules_folder = os.path.join(current_app.root_path, 'static', 'rules')
+
+    return send_from_directory(rules_folder, filename)
 
 
